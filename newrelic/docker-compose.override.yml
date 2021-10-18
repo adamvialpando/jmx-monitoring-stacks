@@ -2,49 +2,49 @@ version: "2.3"
 services:
   zookeeper:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       EXTRA_ARGS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   kafka1:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       EXTRA_ARGS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   kafka2:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       EXTRA_ARGS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   streams-demo:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       JAVA_OPTS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   connect:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       EXTRA_ARGS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   schemaregistry:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       EXTRA_ARGS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   ksqldb-server:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       KSQL_OPTS: -javaagent:/usr/share/newrelic/newrelic.jar
 
   restproxy:
     volumes:
-      - $MONITORING_STACK/../shared-assets/newrelic/:/usr/share/newrelic
+      - $MONITORING_STACK/assets/newrelic/:/usr/share/newrelic
     environment:
       KAFKAREST_OPTS: -javaagent:/usr/share/newrelic/newrelic.jar
 
