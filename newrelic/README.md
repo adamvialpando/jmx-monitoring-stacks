@@ -1,46 +1,24 @@
 # New Relic 
 
-<!-- need to update this with NR images and dashboard api for grafana dashboards.  -->
+## Prerequsite 
 
-## Grafana dashboards
+[Create a New Relic account](https://newrelic.com/signup)
 
-### Confluent Platform overview
+## Installation
 
-![Confluent Platform overview](img/confluent-platform-overview.png)
+To install the Java agent you need to configure your JVM to load the agent during your application's `premain` start-up by passing the `-javaagent:/full/path/to/newrelic.jar` command-line argument. This process varies depending on your environment/application server.
 
-### Zookeeper cluster
+For full details see:
+- [General installation instructions](https://docs.newrelic.com/docs/agents/java-agent/installation/install-java-agent)
+- [Application server specific instructions](https://docs.newrelic.com/docs/agents/java-agent/installation/include-java-agent-jvm-argument)
+- [Additional installation instructions (Maven, Gradle, etc)](https://docs.newrelic.com/docs/agents/java-agent/additional-installation)
 
-![Zookeeper cluster dashboard](img/zookeeper-cluster.png)
+## Getting started
 
-### Kafka cluster
+See the [getting started guide](https://docs.newrelic.com/docs/apm/agents/java-agent/getting-started/introduction-new-relic-java/) as well as the [compatibility and requirements documentation](https://docs.newrelic.com/docs/agents/java-agent/getting-started/compatibility-requirements-java-agent) for an overview of what is supported by the Java agent.
 
-![Kafka cluster dashboard 0](img/kafka-cluster-0.png)
-![Kafka cluster dashboard 1](img/kafka-cluster-1.png)
-
-### Kafka topics
-
-![Kafka topics](img/kafka-topics.png)
-
-### Kafka quotas
-For Kafka to output quota metrics, at least one quota configuration is necessary.
-
-A quota can be configured from the cp-demo folder using docker-compose:
-```bash
-docker-compose exec kafka1 kafka-configs --bootstrap-server kafka1:12091 --alter --add-config 'producer_byte_rate=10000,consumer_byte_rate=30000,request_percentage=0.2' --entity-type users --entity-name appSA
-```
-
-![Kafka quotas](img/kafka-quotas.png)
-
-### Schema Registry cluster
-
-![Schema Registry cluster](img/schema-registry-cluster.png)
-
-### Kafka Connect cluster
-
-![Kafka Connect cluster dashboard 0](img/kafka-connect-cluster-0.png)
-![Kafka Connect cluster dashboard 1](img/kafka-connect-cluster-1.png)
-
-### ksqlDB cluster
-
-![ksqlDB cluster dashboard 0](img/ksqldb-cluster-0.png)
-![ksqlDB cluster dashboard 1](img/ksqldb-cluster-1.png)
+- Rename `newrelic.yml.sample` to `newrelic.yml`
+- Update `newrelic.yml` with your new relic license key. 
+    ```yml
+      license_key: 'your license key here'
+    ```
