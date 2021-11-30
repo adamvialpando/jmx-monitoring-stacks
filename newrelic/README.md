@@ -22,3 +22,9 @@ See the [getting started guide](https://docs.newrelic.com/docs/apm/agents/java-a
     ```yml
       license_key: 'your license key here'
     ```
+    Your license key is an API key in your New Relic account. It is of `type`: `INGEST - LICENSE`, its name is `License Key for [Your Account Name]` and the notes should say `Original account license key`. You can find it in -and copy it from- the API Keys section in your New Relic account.
+
+    ```yml
+      app_name: 'you application name here'
+    ```
+    You application name -as configured in the `newrelic.yml` configuration file- is the name under which your data will be collected in your New Relic account. Use this config to group data from diparate nodes (i.e. newrelic agents).
